@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Integrales</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="librerias/uikit.css" />
+</head>
+
+<body>
+  <main id="app" class="principal">
+    <h3 class="uk-card-title">Integral</h3>
+
+    <form class="uk-form-stacked">
+      <div class="uk-margin">
+        <label class="uk-form-label">Función f(x):</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" type="text" placeholder="ej. x ^ 2" v-model="funcion">
+        </div>
+        <span v-if="errorFuncion.tieneError" class="uk-text-small uk-text-danger">
+          {{ errorFuncion.mensaje }}
+        </span>
+      </div>
+
+      <div class="uk-margin">
+        <label class="uk-form-label">Intervalo de integración:</label>
+        <div class="uk-form-controls">
+          <input class="uk-input" type="text" placeholder="inferior, superior" v-model="intervalo">
+        </div>
+        <span v-if="errorIntervalo.tieneError" class="uk-text-small uk-text-danger">
+          {{ errorIntervalo.mensaje }}
+        </span>
+      </div>
+
+      <div id="formula" v-html="visualizacion" class="formula"></div>
+
+      <div class="uk-margin">
+        <div class="uk-form-label">Método:</div>
+        <div class="uk-form-controls">
+          <label>
+            <input class="uk-radio" type="radio" :checked="esMetodoTrapecio" @click="metodo = 'trapecio'">
+            Regla del trapecio
+          </label><br>
+          <label>
+            <input class="uk-radio" type="radio" :checked="esMetodoSimpson" @click="metodo = 'simpson'">
+            Regla de Simpson
+          </label>
+        </div>
+      </div>
+
+      <div class="uk-margin">
+          <label class="uk-form-label">Particiones:</label>
+          <div class="uk-form-controls">
+            <input class="uk-input" type="number" v-model="particiones">
+          </div>
+          <span v-if="errorParticiones.tieneError" class="uk-text-small uk-text-danger">
+            {{ errorParticiones.mensaje }}
+          </span>
+        </div>
+    </form>
+
+    <button class="uk-button uk-button-primary" :disabled="!puedeEvaluar" type="submit" @click="mostrarResultados">Evaluar</button>
+  </main>
+
+  <script src="librerias/lodash.js"></script>
+  <script src="librerias/uikit.js"></script>
+  <script src="librerias/uikit.icons.js"></script>
+  <script src="librerias/vue.js"></script>
+  <script src="librerias/rxjs.js"></script>
+  <script src="index.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_SVG"></script>
+</body>
+
+</html>

@@ -1,0 +1,11 @@
+{
+  "python.unitTest.pyTestArgs": [
+    "."
+  ],
+  "python.unitTest.unittestEnabled": false,
+  "python.unitTest.nosetestsEnabled": false,
+  "python.unitTest.pyTestEnabled": true,
+  "python.formatting.autopep8Args": [
+    "--ignore e704 e701"
+  ]
+}

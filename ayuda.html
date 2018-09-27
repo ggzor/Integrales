@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Ayuda</title>
+  <link rel="stylesheet" href="librerias/uikit.css">
+  <link rel="stylesheet" href="../librerias/uikit.css">
+</head>
+<body style="margin: 20px">
+  <h1 class="uk-heading-bullet">Ayuda</h1>
+
+  <dl class="uk-description-list">
+      <dt>Multiplicación:</dt>
+      <dd>
+        <p>
+          <strong>Todos</strong> los productos deben colocarse con un asterisco (*).
+        </p>
+        <div>
+          $$ 2x = 2 * x $$
+        </div>
+      </dd>
+      <dt>Funciones:</dt>
+      <dd>
+        <p>
+          Las funciones siguientes deben escribirse como sigue:
+        </p>
+        <div>
+          $$ e^x = exp(x) $$
+          $$ ln{x} = log(x) $$
+          $$ \pi = pi $$
+          $$ \sqrt{x} = sqrt(x) $$
+        </div>
+      </dd>
+      <dt>Intervalo de integración:</dt>
+      <dd>
+        <p>
+          El intervalo de integración debe escribirse como 2 números reales, entre corchetes:
+        </p>
+        <div>
+          $$ [1, 3] $$
+        </div>
+      </dd>
+  </dl>
+
+  <script src="librerias/uikit.css"></script>
+  <script src="librerias/uikit.icons.js"></script>
+  <script src="../librerias/uikit.css"></script>
+  <script src="../librerias/uikit.icons.js"></script>
+  <script>
+      window.MathJax = {
+        messageStyle: 'none',
+        tex2jax: { preview: 'none' },
+        showMathMenu: false,
+        'fast-preview': { disabled: true }
+      };
+    </script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_SVG"></script>
+</body>
+</html>

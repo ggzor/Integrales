@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Resultados</title>
+  <link rel="stylesheet" href="librerias/uikit.css">
+  <link rel="stylesheet" href="../librerias/uikit.css">
+  <style>
+    td {
+      font-size: 14px;
+    }
+    .contenedor {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+    }
+  </style>
+</head>
+
+<body style="margin: 5px;">
+  <div>
+    <dl class="uk-description-list">
+      <dt>Integral:</dt>
+      <dd>
+        <div>
+          {{ funcion }}
+        </div>
+      </dd>
+      <dt>Método:</dt>
+      <dd>
+        {{ metodo }}
+      </dd>
+      <dt>Particiones:</dt>
+      <dd>
+        {{ particiones }}
+      </dd>
+    </dl>    
+    <p><span class="uk-label" style="margin: 0px 10px 0px 0px">Resultado: </span>
+      <strong>
+        {{ resultado }}
+      </strong>
+    </p>
+  </div>
+  <div class="contenedor">
+    <table class="uk-table uk-table-hover uk-table-striped uk-table-small">
+      <thead>
+        <tr>
+          <th class="uk-text-lowercase">n</th>
+          <th class="uk-text-lowercase">x</th>
+          <th class="uk-text-lowercase">f(x)</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{ valores1 }}
+      </tbody>
+    </table>
+    <table class="uk-table uk-table-hover uk-table-striped uk-table-small" style="margin-top: 0">
+        <thead>
+          <tr>
+            <th class="uk-text-lowercase">n</th>
+            <th class="uk-text-lowercase">x</th>
+            <th class="uk-text-lowercase">f(x)</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{ valores2 }}
+        </tbody>
+      </table>
+  </div>
+  <script src="librerias/uikit.css"></script>
+  <script src="librerias/uikit.icons.js"></script>
+  <script src="../librerias/uikit.css"></script>
+  <script src="../librerias/uikit.icons.js"></script>
+
+  <script>
+    window.MathJax = {
+      messageStyle: 'none',
+      tex2jax: { preview: 'none' },
+      showMathMenu: false,
+      'fast-preview': { disabled: true }
+    };
+  </script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.5/latest.js?config=TeX-AMS_SVG"></script>
+</body>
+
+</html>
