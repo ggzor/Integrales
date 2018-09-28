@@ -23,7 +23,7 @@ def interpretar_expresion(expresion):
 
 def interpretar_intervalo(intervalo):
     intervalo = intervalo.strip()
-    intervalos = memoizar(lambda: intervalo[1:-1].split(','))
+    intervalos = memoizar(lambda: [s.strip() for s in intervalo[1:-1].split(',')])
     inferior = memoizar(lambda: interpretar_expresion(intervalos()[0]))
     superior = memoizar(lambda: interpretar_expresion(intervalos()[1]))
 
@@ -37,7 +37,7 @@ def interpretar_intervalo(intervalo):
             'El intervalo de integración debe estar encerrado entre corchetes.'
         ),
         (
-            lambda: not len(intervalos()) == 2,
+            lambda: not len(intervalos()) == 2 or any([s == '' for s in intervalos()]),
             'El intervalo debe tener exactamente dos valores.'
         ),
         (
@@ -55,6 +55,10 @@ def interpretar_intervalo(intervalo):
         (
             lambda: superior().valor.is_real != True,
             'El límite superior no es un número real.'
+        ),
+        (
+            lambda: inferior() == superior(),
+            'Los límites deben ser distintos.'
         )
     ]
 

@@ -21,10 +21,12 @@ def test_deberiaRegresar_funcionInterpretada_cuandoFuncionValida():
 @pytest.mark.parametrize('intervalo', [
     pytest.param('0, 1', id='Intervalo no inicia o termina con corchetes'),
     pytest.param('[23]', id='Intervalo no tiene dos valores'),
+    pytest.param('[23,]', id='Intervalo no tiene dos valores, pero sí coma.'),
     pytest.param('[lambda, 1]', id='Limite inferior no se puede interpretar'),
     pytest.param('0, lambda', id='Limite superior no se puede interpretar'),
     pytest.param('[x, 1]', id='Limite inferior no es un número real'),
-    pytest.param('[0, x]', id='Limite superior no es un número real')
+    pytest.param('[0, x]', id='Limite superior no es un número real'),
+    pytest.param('[34, 34]', id='Límites son iguales'),
 ])
 def test_deberiaRegresar_errorEnPropiedadIntervalo_cuandoIntervaloTieneErrores(intervalo):
     assert tiene_error_cuando_intervalo_es(intervalo)
