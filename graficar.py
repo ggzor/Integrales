@@ -73,12 +73,23 @@ def graficar(expr, intervalo, metodo, particiones):
         for i in range(particiones // 2):
             graficar_parabola(puntos[2 * i], puntos[2 * i + 1], puntos[2 * i + 2], i % 2 == 0)
 
+    def graficar_area_bajo_curva():
+        x = np.arange(a, b, 0.001)
+        y = func(x)
+
+        vertices = [(a, 0)] + list(zip(x, y)) + [(b, 0)]
+        poligono = Polygon(vertices, facecolor='#009FB7', edgecolor='#009FB7')
+        ax.add_patch(poligono)
+
     establecer_interfaz()
     graficar_funcion()
-    if metodo == 'trapecio':
-        graficar_trapecio()
+    if particiones > 1000:
+        graficar_area_bajo_curva()
     else:
-        graficar_simpson()
+        if metodo == 'trapecio':
+            graficar_trapecio()
+        else:
+            graficar_simpson()
 
     plt.show()
 
