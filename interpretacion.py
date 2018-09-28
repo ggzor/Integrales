@@ -8,11 +8,11 @@ memoizar = lru_cache(1)
 
 def transformar_mensaje_error(error):
     if 'EOF' in error:
-        return 'expresión incompleta' 
+        return 'expresión incompleta.' 
     if 'unmatched left parent':
-        return 'paréntesis faltantes'
+        return 'paréntesis faltantes.'
 
-    return error
+    return "error al interpretar."
 
 def interpretar_expresion(expresion):
     try:
