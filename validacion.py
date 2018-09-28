@@ -27,6 +27,10 @@ def validar_particiones(particiones, metodo):
         (
             lambda:  metodo == 'simpson' and valor() % 2 == 1,
             'La cantidad de particiones para el método de Simpson debe ser un número par.'
+        ),
+        (
+            lambda: valor() > 2000,
+            'La cantidad de particiones debe ser menor a 2000.'
         )
     ]
 

@@ -50,6 +50,7 @@ def test_deberiaRegresar_errorEnPropiedadFuncion_cuandoFuncionTieneErrores(funci
     pytest.param('-3', 'simpson', id='Números negativos'),
     pytest.param('1', 'simpson', id='Simpson requiere >= 2'),
     pytest.param('3', 'simpson', id='Simpson requere número par'),
+    pytest.param('3000', 'trapecio', id='Menos de 3000'),
 ])
 def test_deberiaRegresar_errorEnPropiedadParticion_cuandoParticionTieneErrores(particiones, metodo):
     f = Funciones()
